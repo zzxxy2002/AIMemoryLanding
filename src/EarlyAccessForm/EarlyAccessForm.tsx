@@ -27,9 +27,9 @@ function EarlyAccessForm() {
   };
 
 
-  const handleButtonClick = () => {
-    window.location.href = "/"; // Replace "/waitlist" with your desired URL
-  };
+  //const handleButtonClick = () => {
+  //  window.location.href = "/"; // Replace "/waitlist" with your desired URL
+  //};
   // State for submission feedback
 
 
