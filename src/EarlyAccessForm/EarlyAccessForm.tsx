@@ -76,7 +76,7 @@ function EarlyAccessForm() {
               aria-label="Any Suggestion?"
             />
           </div>
-          <button type="submit" className={styles.submitButton} onClick={handleButtonClick} >
+          <button type="submit" className={styles.submitButton}>
             Submit
           </button>
         </form>
