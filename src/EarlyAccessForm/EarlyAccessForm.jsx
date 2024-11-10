@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 ///import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import styles from "./EarlyAccessForm.module.css";
 
 const client = generateClient();
 
