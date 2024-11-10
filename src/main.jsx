@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Router>
       <Routes>
         {/* Define the routes */}
-        <Route path="/" element={<MemoryTrackerPage />} />
+        <Route path="/" element={<EarlyAccessForm />} />
         <Route path="/wait" element={<EarlyAccessForm />} />
       </Routes>
     </Router>
