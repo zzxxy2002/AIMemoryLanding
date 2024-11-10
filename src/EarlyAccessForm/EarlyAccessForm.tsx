@@ -4,31 +4,32 @@
 import React, { useState } from "react";
 import styles from "./EarlyAccessForm.module.css";
 import { generateClient } from "aws-amplify/data";
+import type { Schema } from "../../amplify/data/resource";
 
-const client = generateClient();
+const client = generateClient<Schema>();
 
 
 function EarlyAccessForm() {
   const [email, setEmail] = useState("");
   const [suggestion, setSuggestion] = useState("");
 
-  const handleSubmit = async (e) => {
-    event.preventDefault();
+
+
+  const handleSubmit =  async (e: React.FormEvent<HTMLFormElement>)  => {
+    e.preventDefault();
     try {
-      // Replace "Todo" with your actual model (e.g., EarlyAccessForm)
       await client.models.Todo.create({
         email: email, suggestion: suggestion,
       });
-      setSubmissionStatus("Thank you! Your response has been submitted.");
-      setFormData({ email: "", suggestion: "" }); // Reset the form
     } catch (error) {
       console.error("Error submitting form data:", error);
-      setSubmissionStatus("Failed to submit. Please try again.");
     }
   };
 
 
-
+  const handleButtonClick = () => {
+    window.location.href = "/"; // Replace "/waitlist" with your desired URL
+  };
   // State for submission feedback
 
 
@@ -57,7 +58,7 @@ function EarlyAccessForm() {
               type="email"
               id="emailInput"
               className={styles.suggestionInput}
-              value={formData.email}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
               aria-required="true"
@@ -70,13 +71,12 @@ function EarlyAccessForm() {
             <textarea
               id="suggestionInput"
               className={styles.suggestionInput}
-              rows="3"
-              value={formData.suggestion}
+              value={suggestion}
               onChange={(e) => setSuggestion(e.target.value)}
               aria-label="Any Suggestion?"
             />
           </div>
-          <button type="submit" className={styles.submitButton}>
+          <button type="submit" className={styles.submitButton} onClick={handleButtonClick} >
             Submit
           </button>
         </form>
