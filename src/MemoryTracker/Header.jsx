@@ -5,10 +5,16 @@ import React from "react";
 import styles from "./Header.module.css";
 
 function Header() {
+  const handleButtonClick = () => {
+    window.location.href = "/wait"; // Replace "/waitlist" with your desired URL
+  };
+
   return (
     <header className={styles.header}>
       <h1 className={styles.logo}>inthismoment.me</h1>
-      <button className={styles.ctaButton}>Join our waitlist</button>
+      <button className={styles.ctaButton} onClick={handleButtonClick}>
+        Join our waitlist
+      </button>
     </header>
   );
 }
